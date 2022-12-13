@@ -12,3 +12,4 @@ If you're working on cloud function, use requirements_cloud.txt. The code has a 
 
 ##Actual Dashboard in Looker
 
+[Admin_Dashboard 2022-12-13T1439.pdf](https://github.com/Pokhariyal/GCP/files/10216233/Admin_Dashboard.2022-12-13T1439.pdf)
