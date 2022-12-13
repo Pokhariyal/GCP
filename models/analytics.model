@@ -1,0 +1,30 @@
+connection: "bw_bigquery"
+
+include: "/views/*.view.lkml"                # include all views in the views/ folder in this project
+# include: "/**/*.view.lkml"                 # include all views in this project
+# include: "my_dashboard.dashboard.lookml"   # include a LookML dashboard called my_dashboard
+
+# # Select the views that should be a part of this model,
+# # and define the joins that connect them together.
+#
+explore: sessions {
+  label: "Analytics Views"
+  view_name: sessions
+
+  join: chargers {
+    type: left_outer
+    view_label: "chargers View"
+    relationship: many_to_one
+    sql_on: ${chargers.charger_id} = ${sessions.charger_id}  ;;
+    sql_where:  ${sessions.EndTime_date}>"1970-01-01" and ${sessions.StartTime_date}>"2000-01-01" ;;
+  }
+
+  join: faults {
+    type: left_outer
+    view_label: "Faults View"
+    relationship: many_to_one
+    sql_on: ${faults.charger_id} = ${sessions.charger_id} ;;
+    sql_where:${faults.fault_occurred_time}>"1970-01-01" and ${faults.fault_occurred_time}<=${sessions.EndTime_time} and ${faults.fault_occurred_time}>=${sessions.StartTime_time} ;;
+  }
+
+
