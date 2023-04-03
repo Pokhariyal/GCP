@@ -1,4 +1,4 @@
-# GCP_LiveData->GoogleGloudFunction->GCS->Bigquery->LookerDashboards
+# GCP_LiveData<-CloudFunction->GCS->Bigquery->LookerDashboards
 Repo that contains code to automate data ingestion(upstream gdrive,Website,SqlDB) to Downstream(Bigquery) Visualization in Looker
  
 I've written a code using Google APIs to automate the ingestion of data from APIs,Google Drive to GCS. 
